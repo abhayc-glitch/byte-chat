@@ -1,5 +1,4 @@
-# Chat App 🌊
-A chat application
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -45,28 +44,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-## Springm Boot
-
-image:https://img.shields.io/badge/vert.x-4.1.2-purple.svg[link="https://vertx.io"]
-
-This application was generated using https://start.spring.io
-
-== Building
-
-To launch your tests:
-```
-./gradlew clean test
-```
-
-To package your application:
-```
-./gradlew clean assemble
-```
-
-To run your application:
-```
-./gradlew clean run
-```
-
-== Help
