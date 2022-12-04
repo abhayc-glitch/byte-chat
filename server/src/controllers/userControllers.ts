@@ -18,7 +18,7 @@ export const signin = async(req : any, res: any) => {
         if(!isPasswordCorrect) {return res.status(400).json({message: "Invalid password"})}
 
         // STORE SECRET SOMEWHERE ELSE
-        const token = jwt.sign({ email: existingUser.email, id: existingUser._id}, "jwt-secret", {expiresIn : "1h"})
+        const token = jwt.sign({ email: existingUser.email, id: existingUser._id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn : "1h"})
 
         res.status(200).json({result: existingUser, token})
     } catch (error) {
@@ -42,11 +42,11 @@ export const signup = async(req : any, res: any) => {
 
         const result = await User.create({email, password : hashedPassword, username})
 
-        const token = jwt.sign({ email: result.email, id: result._id}, "jwt-secret", {expiresIn : "1h"})
+        const token = jwt.sign({ email: result.email, id: result._id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn : "1h"})
 
          res.status(200).json({result, token})
     } catch (error) {
-        
+        console.log(error)
     }
     
 }

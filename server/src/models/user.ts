@@ -26,6 +26,9 @@ const userSchema = new mongoose.Schema({
     image : {
         type: String,
         default: "https://avatars.dicebear.com/api/micah/:zzzzzz.svg"
+    },
+    friends : {
+        type: Array
     }
     },
     {
