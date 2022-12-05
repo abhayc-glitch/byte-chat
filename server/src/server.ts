@@ -20,11 +20,11 @@ app.use(cors());
 app.use('/user', userRoutes);
 
 const CONNECTION_URL = 'mongodb+srv://abhay:Abhay1234@cluster0.4cpfcbs.mongodb.net/?retryWrites=true&w=majority'
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 mongoose.connect(CONNECTION_URL) 
     .then(() => app.listen(port, () => {
-        console.log('server listening on port'+port)
+        console.log('⚡ server listening on port: '+port)
     }))
     .catch((error)=> console.log(error));
 

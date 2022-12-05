@@ -50,3 +50,33 @@ export const signup = async(req : any, res: any) => {
     }
     
 }
+
+
+
+// Private access method
+export const allUsers = async (req: any, res: any) => {
+  try {
+    const keyword = req.query.search
+      ? {
+          $or: [
+            { name: { $regex: req.query.search, $options: "i" } },
+            { email: { $regex: req.query.search, $options: "i" } },
+          ],
+        }
+      : {};
+    const allUserData = await User.find(keyword).find({
+      _id: { $ne: req.user._id },
+    });
+    if (allUserData.length === 0) {
+      res.status(200).json({
+        message: "No user Exist",
+      });
+    }
+    res.status(200).json({
+      users: allUserData,
+    });
+  } catch (err) {
+    res.status(500);
+    throw new Error(err);
+  }
+};

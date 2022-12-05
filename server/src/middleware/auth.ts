@@ -1,6 +1,6 @@
 import jwt, {decode} from 'jsonwebtoken'
  
-const auth = async (req:any, res:any, next: any) => {
+export const auth = async (req:any, res:any, next: any) => {
     try {
         // get the token portion of the JWT request
         // it goes  "Bearer (token)"
@@ -22,4 +22,4 @@ const auth = async (req:any, res:any, next: any) => {
         
         console.log(error)
     }
-} 
+}
