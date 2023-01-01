@@ -27,12 +27,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: "https://avatars.dicebear.com/api/micah/:zzzzzz.svg"
     },
-    friends : {
-        type: Array
-    },
     friendRequests : {
         type: Array
-    }
+    },
+    friends: {
+      type: Array,
+      default: [],
+    },
+    location: String,
     },
     {
         timestamps: true,
